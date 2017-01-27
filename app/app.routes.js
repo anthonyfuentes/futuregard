@@ -9,6 +9,12 @@ FG.config(function($stateProvider, $urlRouterProvider) {
         '@': {
           templateUrl: 'app/components/main/main.html'
         }
+      },
+      controller: 'MainCtrl',
+      resolve: {
+        stocks: function(stockService) {
+          return stockService.all();
+        }
       }
     })
     .state('main.portfolio', {
