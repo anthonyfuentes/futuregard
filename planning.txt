@@ -1,0 +1,19 @@
+General
+
+States
+  parent
+    view - content
+  parent.trade
+  parent.transaction
+  parent.portfolio
+
+Views
+  Date Widget
+  Stock Index
+  Portfolio/Trade/Transaction
+
+Misc
+  API request 30 days before actual start date?
+  Dynamically build API endpoint URL based on
+    Symbol
+    Dates
