@@ -69,7 +69,7 @@ Misc
 
 
 
-http://query.yahooapis.com/v1/public/yql?q=%20select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20in%20(%22BAC%22,%22DB%22)%20and%20startDate%20=%20%222015-12-01%22%20and%20endDate%20=%20%222016-12-31%22%20&format=json%20&diagnostics=true%20&env=store://datatables.org/alltableswithkeys%20&callback=
+http://query.yahooapis.com/v1/public/yql?q=%20select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20in%20(%22BAC%22%2C%22DB%22)%20and%20startDate%20=%20%222015-12-01%22%20and%20endDate%20=%20%222016-12-31%22%20&format=json%20&diagnostics=true%20&env=store://datatables.org/alltableswithkeys%20&callback=
 
 
 AAPL
@@ -84,3 +84,22 @@ select * from   yahoo.finance.historicaldata
 &diagnostics=true
 &env=store://datatables.org/alltableswithkeys
 &callback=
+
+var urlBuilder = function(companyArray) {
+  var companyString = "'" + companyArray.join("','") + "'";
+  var startDate = _start.replace(/-/g, '/');
+  var endDate = _end.replace(/-/g, '/');
+
+  return 'http://query.yahooapis.com/v1/public/yql?q=' +
+    'select * from yahoo.finance.historicaldata ' +
+    'where symbol in (' +
+        companyString + ') ' +
+    'and startDate = "'
+    + startDate + '" ' +
+    'and endDate = "' +
+    endDate + '" ' +
+    '&format=json'+
+    '&diagnostics=true' +
+    '&env=store://datatables.org/alltableswithkeys' +
+    '&callback=';
+};
