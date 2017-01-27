@@ -1,25 +1,5 @@
 General
 
-States
-  parent
-    view - content
-  parent.trade
-  parent.transaction
-  parent.portfolio
-
-Views
-  Date Widget
-  Stock Index
-  Portfolio/Trade/Transaction
-
-Misc
-  API request 30 days before actual start date?
-  Dynamically build API endpoint URL based on
-    Symbol
-    Dates
-
-
-
 states
   'parent' state ''
     parent.portfolio '/portfolio'
@@ -38,28 +18,49 @@ states
       - controller 'TransactionCtrl'
       - resolve get requests (service)
 
-services: calls to API (temp JSON)
-  - Yahoo API wrapper / stocks
+services
+  - stocks (Yahoo API wrapper)
     - make a new get / return a resolve obj (cached response)
     - parse store the stocks/data
-  - port
+    - calls to API (temp JSON)
+  - portfolio
     - portfolio storage (quantities, money)
   - trade
-    - validations (- money, can't sell what you don't have, so on)
+    - validations (- money, can't sell empty, negative sale quantity)
     - interacts with portfolio and stocks
-    - pushes a trade into transactions
-  - trans
+      - pushes a trade into transactions
+      - update portfolio
+  - transaction
     - trade history storage
 
-directives / .. /
+directives
   - date widget
-    - stock list (service)
+    - $scope.date      // updated by date widget
+    - $scope.dateRange // dictated by controller
   - stock list
+    - $scope.stockData // ctrl gets data from stock service based on date
 
 filters
+ - filter by stock name
 
 controllers
-  - stock
-  - portfolio
-  - trade
-  - transaction
+  - ParentCtrl
+    - Gets stock data based on date
+  - PortfolioCtrl
+  - TradeCtrl
+  - TransactionCtrl
+
+Misc
+  - API request 30 days before actual start date?
+  - Dynamically build API endpoint URL based on
+    - Symbol
+    - Dates
+
+{
+  // parse method for string to date
+  Date object(12/31/2015): {
+    "1": { name: "AAPL", price: 102.76 }
+    "2":
+  }
+
+}
