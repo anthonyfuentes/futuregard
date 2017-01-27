@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="FG">
 
   <head>
     <title>Fideligard</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <!-- UI Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
   </head>
 
   <body>
-    stocks directive
-    date widget directive
-
-    content ui view
+    <div ui-view></div>
   </body>
 
-  <script src=""></script>
+  <!-- Module -->
+  <script src="/app/app.module.js"></script>
+  <!-- Routes -->
+  <script src="/app/app.routes.js"></script>
 
 </html>

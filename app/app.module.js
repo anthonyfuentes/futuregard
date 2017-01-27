@@ -1,24 +1,5 @@
-states
-  default -> ''
-  portfolio -> '/portfolio'
-    content ui view
-    portfolio template
-  trade -> '/trade'
-    content ui view
-    trade form template
-  transactions -> '/transactions'
-    content ui view
-    transactions template
+var FG = angular.module('FG', ['ui.router']);
 
-
-states
-  'parent' state ''
-    parent.portfolio '/portfolio'
-      - target ui-view='content'
-      - templateUrl
-    parent.trade '/trade'
-      - target ui-view='content'
-      - templateUrl
-    parent.transactions '/transactions'
-      - target ui-view='content'
-      - templateUrl
+FG.run(function($rootScope){
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});
