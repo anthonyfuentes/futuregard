@@ -5,6 +5,11 @@
     <title>Fideligard</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <!-- AngularJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <!-- UI Router -->
@@ -12,7 +17,28 @@
   </head>
 
   <body>
-    <div ui-view></div>
+
+    <div class="container">
+    <!-- nav -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ui-sref="main.portfolio">Portfolioioio</a></li>
+                <li><a ui-sref="main.trade">Trade Meh</a></li>
+                <li><a ui-sref="main.transactions">Transact It</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div class="row">
+        <div ui-view></div>
+      </div>
+    </div>
   </body>
 
   <!-- Module -->

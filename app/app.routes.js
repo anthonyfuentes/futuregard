@@ -13,15 +13,27 @@ FG.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('main.portfolio', {
       url: '/portfolio',
-      template: 'This is the portfolio section'
+      views: {
+        'content@main': {
+          templateUrl: 'app/components/portfolio/portfolio.html'
+        }
+      }
     })
     .state('main.trade', {
       url: '/trade',
-      template: 'This is the trade section'
+      views: {
+        'content@main': {
+          templateUrl: 'app/components/trade/trade.html'
+        }
+      }
     })
     .state('main.transactions', {
       url: '/transactions',
-      template: 'This is the transactions section'
+      views: {
+        'content@main': {
+          templateUrl: 'app/components/transactions/transactions.html'
+        }
+      }
     })
 
 })
