@@ -17,3 +17,49 @@ Misc
   Dynamically build API endpoint URL based on
     Symbol
     Dates
+
+
+
+states
+  'parent' state ''
+    parent.portfolio '/portfolio'
+      - target ui-view='content'
+      - templateUrl
+      - controller 'PortfolioCtrl'
+      - resolve get requests (service)
+    parent.trade '/trade'
+      - target ui-view='content'
+      - templateUrl
+      - controller 'TradeCtrl'
+      - resolve get requests (service)
+    parent.transactions '/transactions'
+      - target ui-view='content'
+      - templateUrl
+      - controller 'TransactionCtrl'
+      - resolve get requests (service)
+
+services: calls to API (temp JSON)
+  - Yahoo API wrapper / stocks
+    - make a new get / return a resolve obj (cached response)
+    - parse store the stocks/data
+  - port
+    - portfolio storage (quantities, money)
+  - trade
+    - validations (- money, can't sell what you don't have, so on)
+    - interacts with portfolio and stocks
+    - pushes a trade into transactions
+  - trans
+    - trade history storage
+
+directives / .. /
+  - date widget
+    - stock list (service)
+  - stock list
+
+filters
+
+controllers
+  - stock
+  - portfolio
+  - trade
+  - transaction

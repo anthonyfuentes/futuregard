@@ -9,3 +9,16 @@ states
   transactions -> '/transactions'
     content ui view
     transactions template
+
+
+states
+  'parent' state ''
+    parent.portfolio '/portfolio'
+      - target ui-view='content'
+      - templateUrl
+    parent.trade '/trade'
+      - target ui-view='content'
+      - templateUrl
+    parent.transactions '/transactions'
+      - target ui-view='content'
+      - templateUrl
