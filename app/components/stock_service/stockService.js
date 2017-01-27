@@ -13,7 +13,7 @@ FG.factory('stockService',
         .then(function(response){
           var data = response.data.query.results.quote;
           _scrub(data);
-          console.log(stocks);
+          // console.log(stocks);
           return stocks;
         });
       };

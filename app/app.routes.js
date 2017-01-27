@@ -7,10 +7,10 @@ FG.config(function($stateProvider, $urlRouterProvider) {
       url: '',
       views: {
         '@': {
-          templateUrl: 'app/components/main/main.html'
+          templateUrl: 'app/components/main/main.html',
+          controller: 'MainCtrl'
         }
       },
-      controller: 'MainCtrl',
       resolve: {
         stocks: function(stockService) {
           return stockService.all();
@@ -23,7 +23,8 @@ FG.config(function($stateProvider, $urlRouterProvider) {
         'content@main': {
           templateUrl: 'app/components/portfolio/portfolio.html'
         }
-      }
+      },
+      controller: 'MainCtrl'
     })
     .state('main.trade', {
       url: '/trade',
