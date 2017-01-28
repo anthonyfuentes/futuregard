@@ -29,7 +29,11 @@ services -> watch out for circular dependencies
     - interacts with portfolio and stocks
       - pushes a trade into transactions
       - update portfolio
-  - date
+  - date (slider)
+    - first date
+    - end date
+    - current date
+    - convert date strings to date objs
     - stores date
   - transaction
     - trade history storage
