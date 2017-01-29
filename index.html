@@ -17,28 +17,25 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-static-top navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ui-sref="main.portfolio">Portfolio</a></li>
+              <li><a ui-sref="main.trade">Trade Action</a></li>
+              <li><a ui-sref="main.transactions">Trade History</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
-    <!-- nav -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="main.portfolio">Portfolioioio</a></li>
-                <li><a ui-sref="main.trade">Trade Meh</a></li>
-                <li><a ui-sref="main.transactions">Transact It</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.container-fluid -->
-      </nav>
-
       <div class="row">
         <div ui-view></div>
       </div>
-
     </div>
   </body>
 
