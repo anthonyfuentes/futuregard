@@ -7,7 +7,8 @@ FG.directive("dateSelector", function(){
     scope: {
       start: "=",
       current: "=",
-      end: "="
+      end: "=",
+      triggerCallbacks: "&"
     }
   }
 

@@ -10,11 +10,10 @@
   </tr>
   <tr ng-repeat="(symbol, stock) in stocks">
     <td>{{ symbol }}</td>
-    <td>{{ stock.price }}</td>
-    <td>{{ stock.oneDay }}</td>
-    <td>{{ stock.week }}</td>
-    <td>{{ stock.month }}</td>
+    <td>{{ stock.price | currency }}</td>
+    <td>{{ stock.oneDay | currency }}</td>
+    <td>{{ stock.week | currency }}</td>
+    <td>{{ stock.month | currency }}</td>
     <td><a ui-sref="main.trade">Trade</a></td>
   </tr>
-
 </table>

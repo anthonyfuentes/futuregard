@@ -21,11 +21,18 @@ FG.factory('dateService', function(){
     return date.toISOString().slice(0, 10);
   };
 
+  var timeTravel = function(date, days) {
+    var newDay = new Date(date.getTime());
+    newDay.setDate(date.getDate() + days);
+    return stringify(newDay);
+  };
+
   return {
     getStart: getStart,
     getCurrent: getCurrent,
     getEnd: getEnd,
-    stringify: stringify
+    stringify: stringify,
+    timeTravel: timeTravel
   };
 
 });

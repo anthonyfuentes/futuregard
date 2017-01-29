@@ -1,14 +1,22 @@
 
 FG.controller('MainCtrl',
-  ['$scope', 'stocks', 'dateService',
+  ['$scope', 'allStocks', 'dateService',
 
-  function($scope, stocks, dateService) {
+  function($scope, allStocks, dateService) {
 
-    $scope.start = dateService.getStart();
-    $scope.current = dateService.getCurrent();
-    $scope.end = dateService.getEnd();
+    $scope.startDate = dateService.getStart();
+    $scope.currentDate = dateService.getCurrent();
+    $scope.endDate = dateService.getEnd();
 
-    $scope.allStocks = stocks;
+    $scope.allStocks = allStocks;
+    $scope.currentStocks = {};
+
+    $scope.updateStocks = function() {
+      var dateKey = dateService.stringify($scope.currentDate);
+      angular.copy(allStocks[dateKey], $scope.currentStocks)
+    }
+
+    $scope.updateStocks();
 
   }
 

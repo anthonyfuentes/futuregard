@@ -5,7 +5,9 @@
   <span>
     <b>Current:</b>
     <form class="form-inline">
-      <input type="date" ng-min="start" ng-model="current" ng-max="end">
+      <input type="date"
+             ng-min="start" ng-model="current" ng-max="end"
+             ng-change="triggerCallbacks()">
     </form>
   </span>
 

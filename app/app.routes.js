@@ -13,7 +13,7 @@ FG.config(function($stateProvider, $urlRouterProvider) {
         }
       },
       resolve: {
-        stocks: function(stockService) {
+        allStocks: function(stockService) {
           return stockService.all();
         }
       }

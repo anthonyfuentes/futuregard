@@ -1,10 +1,12 @@
 
 <div class="col-sm-3">
-  <stock-index stocks="stocks"></stock-index>
+  <stock-index stocks="currentStocks"></stock-index>
 </div>
 
 <div class="col-sm-8 col-sm-offset-1">
-  <date-selector start="start" current="current" end="end"></date-selector>
+  <date-selector start="startDate" current="currentDate" end="endDate"
+                 trigger-callbacks="changeTest()"></date-selector>
   <div ui-view="content">
   </div>
 </div>
+
