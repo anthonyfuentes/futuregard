@@ -10,6 +10,10 @@ FG.config(function($stateProvider, $urlRouterProvider) {
         '@': {
           templateUrl: 'app/components/main/main.html',
           controller: 'MainCtrl'
+        },
+        'dateSelector@main': {
+          templateUrl: 'app/components/main/date_selector/dateSelector.html',
+          controller: 'DateSelectorCtrl'
         }
       },
       resolve: {
@@ -42,6 +46,7 @@ FG.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: 'app/components/transactions/transactions.html'
         }
       }
-    })
+    });
 
-})
+});
+
