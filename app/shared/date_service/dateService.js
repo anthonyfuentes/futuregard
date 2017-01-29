@@ -36,13 +36,19 @@ FG.factory('dateService',
         return stringify(newDay);
       };
 
+      var toDate = function(dateString) {
+        var formattedString = dateString.replace(/-/g, '/');
+        return new Date(formattedString);
+      };
+
       return {
         getStart: getStart,
         getCurrent: getCurrent,
         getEnd: getEnd,
         stringify: stringify,
         setDate: setDate,
-        timeTravel: timeTravel
+        timeTravel: timeTravel,
+        toDate: toDate
       };
 
     }

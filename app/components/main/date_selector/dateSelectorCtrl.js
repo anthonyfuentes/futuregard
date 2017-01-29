@@ -8,6 +8,11 @@ FG.controller('DateSelectorCtrl',
       $scope.currentDate = dateService.getCurrent();
       $scope.endDate = dateService.getEnd();
 
+      $scope.changeDate = function(date) {
+        var date = new Date(date);
+        dateService.setDate(date);
+      };
+
     }
 
 ]);
