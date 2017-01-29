@@ -1,0 +1,13 @@
+
+<div id="date-bar">
+  <span><b>Start:</b> {{ start | date:'MM/dd/yyyy' }}</span>
+
+  <span>
+    <b>Current:</b>
+    <form class="form-inline">
+      <input type="date" ng-min="start" ng-model="current" ng-max="end">
+    </form>
+  </span>
+
+  <span><b>End:</b> {{ end | date:'MM/dd/yyyy' }}</span>
+</div>
