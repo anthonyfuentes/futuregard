@@ -17,10 +17,15 @@ FG.factory('dateService', function(){
     return end;
   };
 
+  var stringify = function(date) {
+    return date.toISOString().slice(0, 10);
+  };
+
   return {
     getStart: getStart,
     getCurrent: getCurrent,
-    getEnd: getEnd
+    getEnd: getEnd,
+    stringify: stringify
   };
 
 });
