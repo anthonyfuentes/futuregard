@@ -1,38 +1,51 @@
 
-FG.factory('dateService', function(){
+FG.factory('dateService',
+  ['$rootScope',
 
-  var start = new Date("2015-12-31");
-  var current = new Date("2015-12-31");
-  var end = new Date("2016-03-31");
+    function($rootScope){
 
-  var getStart = function() {
-    return start;
-  };
+      var start = new Date("2015/12/31");
+      var current = new Date("2015/12/31");
+      var end = new Date("2016/03/31");
 
-  var getCurrent = function() {
-    return current;
-  };
+      var getStart = function() {
+        return start;
+      };
 
-  var getEnd = function() {
-    return end;
-  };
+      var getCurrent = function() {
+        return current;
+      };
 
-  var stringify = function(date) {
-    return date.toISOString().slice(0, 10);
-  };
+      var getEnd = function() {
+        return end;
+      };
 
-  var timeTravel = function(date, days) {
-    var newDay = new Date(date.getTime());
-    newDay.setDate(date.getDate() + days);
-    return stringify(newDay);
-  };
+      var stringify = function(date) {
+        var string = date.toISOString().slice(0, 10).replace(/-/g, '/');
+        return string;
+      };
 
-  return {
-    getStart: getStart,
-    getCurrent: getCurrent,
-    getEnd: getEnd,
-    stringify: stringify,
-    timeTravel: timeTravel
-  };
+      var setDate = function(date) {
+        current = date;
+        $rootScope.$broadcast('dateChange', current);
+      };
 
-});
+      var timeTravel = function(date, days) {
+        var newDay = new Date(date.getTime());
+        newDay.setDate(date.getDate() + days);
+        return stringify(newDay);
+      };
+
+      return {
+        getStart: getStart,
+        getCurrent: getCurrent,
+        getEnd: getEnd,
+        stringify: stringify,
+        setDate: setDate,
+        timeTravel: timeTravel
+      };
+
+    }
+
+]);
+

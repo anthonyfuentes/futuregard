@@ -24,12 +24,13 @@ FG.factory('stockService',
       };
 
       var _populateDatesWithPrices = function _populateDatesWithPrices(data) {
-        var stock, stockData, stocksForDate;
+        var stock, stockData, date, stocksForDate;
         for (var i = 0; i < data.length; i++) {
           stock = {};
           stockData = data[i];
-          stocksForDate = stocks[stockData['Date']];
-          if (!stocksForDate) stocksForDate = stocks[stockData['Date']] = {};
+          date = stockData['Date'].replace(/-/g, '/');
+          stocksForDate = stocks[date];
+          if (!stocksForDate) stocksForDate = stocks[date] = {};
           stock.price = parseFloat(stockData['Close']);
           stock.symbol = stockData['Symbol'];
           stocksForDate[stockData['Symbol']] = stock;
