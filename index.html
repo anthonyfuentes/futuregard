@@ -9,7 +9,6 @@
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <!-- AngularJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <!-- UI Router -->
@@ -38,6 +37,7 @@
       <div class="row">
         <div ui-view></div>
       </div>
+
     </div>
   </body>
 
@@ -47,7 +47,9 @@
   <script src="/app/app.routes.js"></script>
   <!-- Services -->
   <script src="/app/components/stock_service/stockService.js"></script>
+  <!-- Directives -->
+  <script src="/app/shared/stock_index/stockIndex.js"></script>
   <!-- Controllers -->
-  <script src="/app/components/main/mainController.js"></script>
+  <script src="/app/components/main/mainCtrl.js"></script>
 
 </html>

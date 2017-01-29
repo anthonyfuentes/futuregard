@@ -1,0 +1,20 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>Symbol</th>
+    <th>Price</th>
+    <th>1D</th>
+    <th>7D</th>
+    <th>30D</th>
+    <th>Trade</th>
+  </tr>
+  <tr ng-repeat="(symbol, stock) in stocks">
+    <td>{{ symbol }}</td>
+    <td>{{ stock.price }}</td>
+    <td>{{ stock.oneDay }}</td>
+    <td>{{ stock.week }}</td>
+    <td>{{ stock.month }}</td>
+    <td><a ui-sref="main.trade">Trade</a></td>
+  </tr>
+
+</table>

@@ -1,11 +1,10 @@
+
 <div class="col-sm-3">
-  <stock-index></stock-index>
-  {{ stocks }}
+  <stock-index stocks="stocks"></stock-index>
 </div>
 
 <div class="col-sm-8 col-sm-offset-1">
   <date-slider></date-slider>
-
   <div ui-view="content">
   </div>
 </div>
