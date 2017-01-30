@@ -27,7 +27,6 @@ FG.factory('portfolioService',
         var price = stockService.currentPrice(stock);
         summary.value = holding.quantity * price;
         summary.profit = summary.value - holding.cost;
-        summary.currentPrice = price;
         summary.performance = stockService.performance(stock);
       };
 

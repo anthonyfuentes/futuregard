@@ -32,7 +32,6 @@
         <th>Cost Basis</th>
         <th>Current Value</th>
         <th>P&L</th>
-        <th>Current Price</th>
         <th>1D</th>
         <th>7D</th>
         <th>30D</th>
@@ -44,7 +43,6 @@
         <td>{{ holding.cost | currency }}</td>
         <td>{{ holding.summary.value | currency }}</td>
         <td>{{ holding.summary.profit | currency }}</td>
-        <td>{{ holding.summary.currentPrice | currency }}</td>
         <td>{{ holding.summary.performance.oneDay | currency }}</td>
         <td>{{ holding.summary.performance.week | currency }}</td>
         <td>{{ holding.summary.performance.month | currency }}</td>
