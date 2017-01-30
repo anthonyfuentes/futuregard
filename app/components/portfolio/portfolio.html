@@ -38,6 +38,18 @@
         <th>30D</th>
         <th>Trade</th>
       </tr>
+      <tr ng-repeat="(_, holding) in stocks">
+        <td>{{ holding.stock }}</td>
+        <td>{{ holding.quantity }}</td>
+        <td>{{ holding.cost | currency }}</td>
+        <td>{{ holding.summary.value | currency }}</td>
+        <td>{{ holding.summary.profit | currency }}</td>
+        <td>{{ holding.summary.currentPrice | currency }}</td>
+        <td>{{ holding.summary.performance.oneDay | currency }}</td>
+        <td>{{ holding.summary.performance.week | currency }}</td>
+        <td>{{ holding.summary.performance.month | currency }}</td>
+        <td><a ui-sref="main.trade({ symbol: holding.stock })">Trade</a></td>
+      </tr>
     </table>
   </div>
 </div>

@@ -1,9 +1,15 @@
 
 FG.controller('PortfolioCtrl',
-  ['$scope',
+  ['$scope', 'portfolioService',
 
-    function($scope){
+    function($scope, portfolioService){
+      $scope.stocks = {};
 
+      angular.copy(portfolioService.getStocksWithSummary(), $scope.stocks);
+
+      $scope.$on('dateChange', function() {
+        angular.copy(portfolioService.getStocksWithSummary(), $scope.stocks);
+      });
     }
 
 ]);

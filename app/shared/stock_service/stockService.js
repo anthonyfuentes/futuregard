@@ -22,6 +22,32 @@ FG.factory('stockService',
         return stocks[dateKey];
       };
 
+      var currentPrice = function(stock) {
+        var dateKey = dateService.stringify(dateService.getCurrent());
+        return _priceFor(dateKey, stock);
+      };
+
+      var _priceFor = function(dateKey, stock) {
+        var stockData = _getStockByDateSymbol(dateKey, stock);
+        if (stockData) return stockData.price;
+      };
+
+      var performance = function(stock, date) {
+        date = date || dateService.stringify(dateService.getCurrent());
+        var performance = {
+          oneDay: 'N/A',
+          week: 'N/A',
+          month: 'N/A'
+        };
+        var stockData = _getStockByDateSymbol(date, stock);
+        if (stockData) {
+          performance.oneDay = stockData.oneDay;
+          performance.week = stockData.week;
+          performance.month = stockData.month;
+        }
+        return performance;
+      };
+
       var _scrub = function _scrub(data) {
         _populateDatesWithPrices(data);
         _fillIn(data);
@@ -98,10 +124,12 @@ FG.factory('stockService',
 
       return {
         all: all,
-        stocksForDate: stocksForDate
+        stocksForDate: stocksForDate,
+        currentPrice: currentPrice,
+        performance: performance
       };
 
     }
 
-]);
+  ]);
 
