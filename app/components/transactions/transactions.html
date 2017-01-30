@@ -28,5 +28,15 @@
       </tr>
     </table>
 
+    <ul uib-pagination
+        ng-if="pagination.totalItems"
+        ng-model="pagination.currentPage"
+        total-items="pagination.totalItems"
+        items-per-page="pagination.perPage"
+        num-pages="pagination.numPages"
+        max-size="pagination.maxSize"
+        boundary-links="true">
+    </ul>
+
   </div>
 </div>
