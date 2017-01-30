@@ -1,8 +1,27 @@
 
 FG.factory('transactionService',
-  ['portfolioService',
+  ['portfolioService', 'dateService',
 
-    function(portfolioService) {
+    function(portfolioService, dateService) {
+
+      var _id = 0;
+      var transactions = {};
+
+      var getTransactions = function() {
+        return transactions;
+      };
+
+      var processTransaction = function(transaction) {
+        var transactionRecord = {};
+        transactionRecord.id = _nextId(true);
+        transactionRecord.stock = transaction.stock;
+        transactionRecord.type = transaction.type;
+        transactionRecord.quantity = transaction.quantity;
+        transactionRecord.date = dateService.stringify(transaction.date);
+        transactionRecord.stockPrice = transaction.stockPrice;
+        transactionRecord.total = transaction.total;
+        transactions[transactionRecord.id] = transactionRecord;
+      };
 
       var isValid = function(transaction) {
         if (transaction.type === 'buy') {
@@ -23,7 +42,13 @@ FG.factory('transactionService',
         return availableQuantity >= transaction.quantity;
       };
 
+      var _nextId = function(increment) {
+        return increment ? _id++ : _id + 1;
+      };
+
       return {
+        getTransactions: getTransactions,
+        processTransaction: processTransaction,
         isValid: isValid
       };
 

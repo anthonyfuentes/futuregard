@@ -1,1 +1,25 @@
-transact stuff
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Trade History</h3>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Stock</th>
+    <th>Trade Type</th>
+    <th>Quantity</th>
+    <th>Stock Price</th>
+    <th>Total</th>
+  </tr>
+  <tr ng-repeat="transaction in transactions | orderBy:'id':true">
+    <td>{{ transaction.date }}</td>
+    <td>{{ transaction.stock }}</td>
+    <td>{{ transaction.type }}</td>
+    <td>{{ transaction.quantity }}</td>
+    <td>{{ transaction.stockPrice }}</td>
+    <td>{{ transaction.total }}</td>
+  </tr>
+</table>

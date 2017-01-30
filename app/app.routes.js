@@ -36,7 +36,8 @@ FG.config(function($stateProvider, $urlRouterProvider) {
       url: '/transactions',
       views: {
         'content@main': {
-          templateUrl: 'app/components/transactions/transactions.html'
+          templateUrl: 'app/components/transactions/transactions.html',
+          controller: 'TransactionCtrl'
         }
       }
     })
