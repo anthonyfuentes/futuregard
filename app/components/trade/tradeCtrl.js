@@ -40,8 +40,10 @@ FG.controller('TradeCtrl',
       $scope.transaction = {
         stock: $scope.symbol,
         type: 'buy',
+        quantity: 1,
         date: $scope.date,
         stockPrice: $scope.allStocks[$scope.symbol].price,
+        total: 0,
         valid: true
       };
 

@@ -9,4 +9,7 @@
   display: flex;
   justify-content: space-between; }
 
+#trade-form > * {
+  margin: 0 0 10px 0; }
+
 /*# sourceMappingURL=main.css.map */
