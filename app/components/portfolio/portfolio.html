@@ -15,12 +15,12 @@
         <th>30D</th>
       </tr>
       <tr>
-        <td>{{ portfolio.costBasis }}</td>
-        <td>{{ portfolio.value }}</td>
-        <td>{{ portfolio.profit }}</td>
-        <td>{{ portfolio.oneDay }}</td>
-        <td>{{ portfolio.week }}</td>
-        <td>{{ portfolio.month }}</td>
+        <td>{{ portfolio.costBasis | currency }}</td>
+        <td>{{ portfolio.value | currency }}</td>
+        <td>{{ portfolio.profit | currency }}</td>
+        <td>{{ portfolio.oneDay | currency }}</td>
+        <td>{{ portfolio.week | currency }}</td>
+        <td>{{ portfolio.month | currency }}</td>
       </tr>
     </table>
 

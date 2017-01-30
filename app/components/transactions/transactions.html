@@ -19,7 +19,7 @@
     <td>{{ transaction.stock }}</td>
     <td>{{ transaction.type }}</td>
     <td>{{ transaction.quantity }}</td>
-    <td>{{ transaction.stockPrice }}</td>
-    <td>{{ transaction.total }}</td>
+    <td>{{ transaction.stockPrice | currency }}</td>
+    <td>{{ transaction.total | currency }}</td>
   </tr>
 </table>

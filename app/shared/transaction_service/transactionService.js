@@ -11,6 +11,19 @@ FG.factory('transactionService',
         return transactions;
       };
 
+      var getLifetimeProfit = function() {
+        if (_id === 0) return 0;
+        var profit = 0;
+        var transaction;
+        var multiplier;
+        for (var id in transactions) {
+          transaction = transactions[id];
+          multiplier = transaction.type === 'buy' ? -1 : 1;
+          profit += transaction.total * multiplier;
+        };
+        return profit;
+      };
+
       var processTransaction = function(transaction) {
         var transactionRecord = {};
         transactionRecord.id = _nextId(true);
@@ -48,6 +61,7 @@ FG.factory('transactionService',
 
       return {
         getTransactions: getTransactions,
+        getLifetimeProfit: getLifetimeProfit,
         processTransaction: processTransaction,
         isValid: isValid
       };
