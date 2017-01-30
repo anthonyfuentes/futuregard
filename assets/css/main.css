@@ -1,6 +1,11 @@
 /*
+  * layout
   * modules
 */
+/* layout */
+.margin-bot-sm {
+  margin-bottom: 15px; }
+
 /* modules */
 .form-inline {
   display: inline; }

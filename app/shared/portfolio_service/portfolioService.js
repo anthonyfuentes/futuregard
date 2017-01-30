@@ -11,6 +11,10 @@ FG.factory('portfolioService',
         return funds;
       };
 
+      var getStocks = function() {
+        return stocks;
+      };
+
       var getStocksWithSummary = function() {
         var holding;
         for (var stock in stocks) {
@@ -69,6 +73,7 @@ FG.factory('portfolioService',
       return {
         getFunds: getFunds,
         getStockQuantity: getStockQuantity,
+        getStocks: getStocks,
         getStocksWithSummary: getStocksWithSummary,
         processTransaction: processTransaction
       };

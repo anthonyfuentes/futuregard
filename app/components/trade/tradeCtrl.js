@@ -18,6 +18,8 @@ FG.controller('TradeCtrl',
 
         $scope.symbol = $stateParams.symbol || $scope.defaultSymbol;
 
+        $scope.stocks = portfolioService.getStocks();
+
         var _updateData = function() {
           _updateDate();
           _updateStocks();

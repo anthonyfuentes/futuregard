@@ -7,13 +7,26 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-push-6 col-xs-12">
-    <div>
+    <div class="margin-bot-sm">
       <b>Funds Available</b>:
       {{ funds | currency }}
     </div>
-    <div>
+    <div class="margin-bot-sm">
       <b>Transaction Status</b>:
       {{ transaction.valid ? "VALID" : "INVALID" }}
+    </div>
+    <div class="margin-bot-sm">
+      <b>Stock Holdings</b>
+        <table class="table table-striped">
+          <tr>
+            <th>Quantity</th>
+            <th>Stock</th>
+          </tr>
+          <tr ng-repeat="(_, stock) in stocks">
+            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.stock }}</td>
+          </tr>
+        </table>
     </div>
   </div>
   <div class="col-sm-6 col-sm-pull-6 col-xs-12">
