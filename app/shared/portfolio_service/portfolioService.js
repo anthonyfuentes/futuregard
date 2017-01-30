@@ -11,31 +11,39 @@ FG.factory('portfolioService',
     };
 
     var getStockQuantity = function(stockSymbol) {
-
+      var holding = stocks[stockSymbol];
+      return holding ? holding.quantity : 0;
     };
 
     var processTransaction = function(transaction) {
       if (transaction.type === 'buy') {
         _processStockPurchase(transaction);
       } else {
-        // TODO
+        _processStockSale(transaction);
       }
     };
 
     var _processStockPurchase = function(transaction) {
-      var holdings = stocks[transaction.stock];
-      if (!holdings) holdings = _newHoldingFor(transaction.stock);
-      holdings.quantity += transaction.quantity;
-      holdings.cost += transaction.total;
+      var holding = stocks[transaction.stock];
+      if (!holding) holding = _newHoldingFor(transaction.stock);
+      holding.quantity += transaction.quantity;
+      holding.cost += transaction.total;
       funds -= transaction.total;
     };
 
     var _newHoldingFor = function(stock) {
-      var holdings = stocks[stock] = {};
-      holdings.stock = stock;
-      holdings.quantity = 0;
-      holdings.cost = 0;
-      return holdings;
+      var holding = stocks[stock] = {};
+      holding.stock = stock;
+      holding.quantity = 0;
+      holding.cost = 0;
+      return holding;
+    };
+
+    var _processStockSale = function(transaction) {
+      var holding = stocks[transaction.stock];
+      funds += transaction.total;
+      holding.quantity -= transaction.quantity;
+      if (holding.quantity === 0) delete stocks[transaction.stock];
     };
 
     return {
