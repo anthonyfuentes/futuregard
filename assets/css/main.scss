@@ -19,6 +19,11 @@
   justify-content: space-between;
 }
 
+#date-selector {
+  width: 50%;
+  display: inline;
+}
+
 #trade-form {
   > * {
     margin: 0 0 10px 0;

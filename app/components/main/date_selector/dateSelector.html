@@ -4,11 +4,16 @@
 
   <span>
     <b>Current:</b>
-    <form class="form-inline">
-      <input type="date"
-             ng-min="startDate" ng-model="currentDate" ng-max="endDate"
-             ng-change="changeDate(currentDate)">
-    </form>
+    <input type="text"
+           uib-datepicker-popup="MM-dd-yyyy"
+           ng-model="currentDate"
+           is-open="opened"
+           datepicker-options="dateOptions"
+           close-text="Close"
+           ng-click="toggleOpened()"
+           ng-change="changeDate(currentDate)"
+           class="form-control"
+           id="date-selector">
   </span>
 
   <span><b>End:</b> {{ endDate | date:'MM/dd/yyyy' }}</span>
