@@ -19,21 +19,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-static-top navbar-inverse">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a ui-sref="main.portfolio">Portfolio</a></li>
-              <li><a ui-sref="main.trade">Trade Action</a></li>
-              <li><a ui-sref="main.transactions">Trade History</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+    <primary-navbar></primary-navbar>
     <div class="container">
       <div class="row">
         <div ui-view></div>
@@ -52,6 +38,7 @@
   <script src="/app/shared/transaction_service/transactionService.js"></script>
   <!-- Directives -->
   <script src="/app/components/main/stock_index/stockIndex.js"></script>
+  <script src="/app/components/main/primary_navbar/primaryNavbar.js"></script>
   <!-- Filters -->
   <script src="/app/shared/filters/stockFilter.js"></script>
   <script src="/app/shared/filters/transactionFilter.js"></script>
