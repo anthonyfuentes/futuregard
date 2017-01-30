@@ -7,27 +7,31 @@
 
 <div class="row">
   <div class="col-sm-6 col-sm-push-6 col-xs-12">
-    <div class="margin-bot-sm">
-      <b>Funds Available</b>:
-      {{ funds | currency }}
-    </div>
-    <div class="margin-bot-sm">
-      <b>Transaction Status</b>:
-      {{ transaction.valid ? "VALID" : "INVALID" }}
-    </div>
-    <div class="margin-bot-sm">
-      <b>Stock Holdings</b>
-        <table class="table table-striped">
-          <tr>
-            <th>Quantity</th>
-            <th>Stock</th>
-          </tr>
-          <tr ng-repeat="(_, stock) in stocks">
-            <td>{{ stock.quantity }}</td>
-            <td>{{ stock.stock }}</td>
-          </tr>
-        </table>
-    </div>
+    <table class="table table-striped">
+      <tr>
+        <th colspan="2">Available Funds</th>
+      </tr>
+      <tr>
+        <td colspan="2">{{ funds | currency }}</td>
+      </tr>
+      <tr>
+        <th colspan="2">Transaction Status</th>
+      </tr>
+      <tr>
+        <td colspan="2">{{ transaction.valid ? "VALID" : "INVALID" }}</td>
+      </tr>
+      <tr>
+        <th colspan="2">Stock Holdings</th>
+      </tr>
+      <tr>
+        <th>Stock</th>
+        <th>Quantity</th>
+      </tr>
+      <tr ng-repeat="(_, stock) in stocks">
+        <td>{{ stock.stock }}</td>
+        <td>{{ stock.quantity }}</td>
+      </tr>
+    </table>
   </div>
   <div class="col-sm-6 col-sm-pull-6 col-xs-12">
     <form ng-submit="processTransaction()" id="trade-form">
@@ -44,21 +48,21 @@
       </select>
 
       <input type="number" ng-model="transaction.quantity"
-             ng-min="1"
-             class="form-control" placeholder="Quantity">
+                           ng-min="1"
+                           class="form-control" placeholder="Quantity">
 
       <input type="date" ng-model="transaction.date"
-             class="form-control" disabled>
+                         class="form-control" disabled>
 
       <input type="number" value="{{ transaction.stockPrice }}"
-             class="form-control" readonly>
+                           class="form-control" readonly>
 
       <input type="number" value="{{ transaction.total }}"
-             class="form-control" placeholder="Total"
-             readonly>
+                           class="form-control" placeholder="Total"
+                                                readonly>
 
       <input ng-disabled="!transaction.valid" type="submit"
-             class="btn btn-success btn-block" >
+                                              class="btn btn-success btn-block" >
 
     </form>
   </div>
