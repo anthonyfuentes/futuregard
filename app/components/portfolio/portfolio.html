@@ -25,6 +25,9 @@
     </table>
 
     <h4>Assets</h4>
+    <input ng-model="symbolFilter" type="text"
+           class="form-control margin-bot-sm"
+           placeholder="Filter by symbol">
     <table class="table table-striped">
       <tr>
         <th>Stock</th>
@@ -37,7 +40,7 @@
         <th>30D</th>
         <th>Trade</th>
       </tr>
-      <tr ng-repeat="(_, holding) in stocks">
+      <tr ng-repeat="(_, holding) in stocks | stockFilter:symbolFilter">
         <td>{{ holding.stock }}</td>
         <td>{{ holding.quantity }}</td>
         <td>{{ holding.cost | currency }}</td>

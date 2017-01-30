@@ -2,24 +2,31 @@
 <div class="row">
   <div class="col-sm-12">
     <h3>Trade History</h3>
+
+    <input ng-model="symbolFilter" type="text"
+           class="form-control margin-bot-sm"
+           placeholder="Filter by symbol">
+
+    <table class="table table-striped">
+      <tr>
+        <th>Date</th>
+        <th>Stock</th>
+        <th>Trade Type</th>
+        <th>Quantity</th>
+        <th>Stock Price</th>
+        <th>Total</th>
+      </tr>
+      <tr ng-repeat="transaction in transactions
+                                    | transactionFilter:symbolFilter
+                                    | orderBy:'id':true">
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.stock }}</td>
+        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.stockPrice | currency }}</td>
+        <td>{{ transaction.total | currency }}</td>
+      </tr>
+    </table>
+
   </div>
 </div>
-
-<table class="table table-striped">
-  <tr>
-    <th>Date</th>
-    <th>Stock</th>
-    <th>Trade Type</th>
-    <th>Quantity</th>
-    <th>Stock Price</th>
-    <th>Total</th>
-  </tr>
-  <tr ng-repeat="transaction in transactions | orderBy:'id':true">
-    <td>{{ transaction.date }}</td>
-    <td>{{ transaction.stock }}</td>
-    <td>{{ transaction.type }}</td>
-    <td>{{ transaction.quantity }}</td>
-    <td>{{ transaction.stockPrice | currency }}</td>
-    <td>{{ transaction.total | currency }}</td>
-  </tr>
-</table>
