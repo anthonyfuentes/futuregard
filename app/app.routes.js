@@ -26,24 +26,27 @@ FG.config(function($stateProvider, $urlRouterProvider) {
       url: '/portfolio',
       views: {
         'content@main': {
-          templateUrl: 'app/components/portfolio/portfolio.html'
+          templateUrl: 'app/components/portfolio/portfolio.html',
+          controller: 'PortfolioCtrl'
         }
       },
       controller: 'MainCtrl'
-    })
-    .state('main.trade', {
-      url: '/trade',
-      views: {
-        'content@main': {
-          templateUrl: 'app/components/trade/trade.html'
-        }
-      }
     })
     .state('main.transactions', {
       url: '/transactions',
       views: {
         'content@main': {
           templateUrl: 'app/components/transactions/transactions.html'
+        }
+      }
+    })
+    .state('main.trade', {
+      url: '/trade',
+      params: { symbol: '' },
+      views: {
+        'content@main': {
+          templateUrl: 'app/components/trade/trade.html',
+          controller: 'TradeCtrl'
         }
       }
     });

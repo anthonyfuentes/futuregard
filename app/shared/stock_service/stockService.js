@@ -18,6 +18,10 @@ FG.factory('stockService',
         });
       };
 
+      var stocksForDate = function(dateKey) {
+        return stocks[dateKey];
+      };
+
       var _scrub = function _scrub(data) {
         _populateDatesWithPrices(data);
         _fillIn(data);
@@ -64,8 +68,6 @@ FG.factory('stockService',
         var date = new Date(date);
         var otherDate = dateService.timeTravel(date, dateDelta);
         var otherStock = _getStockByDateSymbol(otherDate, stock.symbol);
-// TODO: DELETE
-if (!otherStock) console.log(date, otherStock);
         var otherStockPrice = otherStock ? otherStock.price : 0;
         return stock.price - otherStockPrice;
       };
@@ -95,7 +97,8 @@ if (!otherStock) console.log(date, otherStock);
       };
 
       return {
-        all: all
+        all: all,
+        stocksForDate: stocksForDate
       };
 
     }

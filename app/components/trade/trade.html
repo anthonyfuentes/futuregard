@@ -1,1 +1,43 @@
-tradesssss
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Trade</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <form>
+      <select ng-model="transaction.stock" class="form-control">
+        <option value='' selected>-- Select Stock --</option>
+        <option ng-repeat="symbol in symbols">{{ symbol }}</option>
+      </select>
+      <select ng-model="transaction.type" class="form-control">
+        <option value='' selected>-- Select Transaction Type --</option>
+        <option value="buy">Buy</option>
+        <option value="sell">Sell</option>
+      </select>
+      <input type="number" ng-model="transaction.quantity"
+             ng-min="1"
+             class="form-control" placeholder="Quantity">
+      <input type="date" ng-model="transaction.date"
+             class="form-control" disabled>
+      <input type="number" value="{{ transaction.stockPrice }}"
+             class="form-control" readonly>
+      <input type="number" value="{{ transaction.total }}"
+             class="form-control" placeholder="Total"
+             readonly>
+      <input type="submit" class="btn btn-success btn-block">
+    </form>
+  </div>
+  <div class="col-sm-6">
+    <div>
+      <b>Funds Available</b>:
+      {{ funds }}
+    </div>
+    <div>
+      <b>Transaction Status</b>:
+      {{ transaction.valid ? "VALID" : "INVALID" }}
+    </div>
+  </div>
+</div>

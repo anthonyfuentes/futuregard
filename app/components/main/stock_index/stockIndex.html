@@ -14,6 +14,6 @@
     <td>{{ stock.oneDay | currency }}</td>
     <td>{{ stock.week | currency }}</td>
     <td>{{ stock.month | currency }}</td>
-    <td><a ui-sref="main.trade">Trade</a></td>
+    <td><a ui-sref="main.trade({ symbol: symbol })">Trade</a></td>
   </tr>
 </table>
