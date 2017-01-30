@@ -1,2 +1,43 @@
 
-PORTFOLIO
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Portfolio</h3>
+
+    <h4>Summary</h4>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Cost Basis</th>
+        <th>Current Value</th>
+        <th>P&L</th>
+        <th>1D</th>
+        <th>7D</th>
+        <th>30D</th>
+      </tr>
+      <tr>
+        <td>{{ portfolio.costBasis }}</td>
+        <td>{{ portfolio.value }}</td>
+        <td>{{ portfolio.profit }}</td>
+        <td>{{ portfolio.oneDay }}</td>
+        <td>{{ portfolio.week }}</td>
+        <td>{{ portfolio.month }}</td>
+      </tr>
+    </table>
+
+    <h4>Assets</h4>
+    <table class="table table-striped">
+      <tr>
+        <th>Stock</th>
+        <th>Quantity</th>
+        <th>Cost Basis</th>
+        <th>Current Value</th>
+        <th>P&L</th>
+        <th>Current Price</th>
+        <th>1D</th>
+        <th>7D</th>
+        <th>30D</th>
+        <th>Trade</th>
+      </tr>
+    </table>
+  </div>
+</div>

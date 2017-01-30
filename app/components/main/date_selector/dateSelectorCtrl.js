@@ -13,6 +13,10 @@ FG.controller('DateSelectorCtrl',
         dateService.setDate(date);
       };
 
+      $scope.$on('dateChange', function() {
+        $scope.currentDate = dateService.getCurrent();
+      });
+
     }
 
 ]);

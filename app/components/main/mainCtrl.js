@@ -13,7 +13,7 @@ FG.controller('MainCtrl',
       angular.copy(allStocks[dateKey], $scope.currentStocks)
     };
 
-    $scope.$on('dateChange', function(e, date) {
+    $scope.$on('dateChange', function() {
       $scope.updateStocks();
     });
 
