@@ -6,7 +6,17 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 col-sm-push-6 col-xs-12">
+    <div>
+      <b>Funds Available</b>:
+      {{ funds | currency }}
+    </div>
+    <div>
+      <b>Transaction Status</b>:
+      {{ transaction.valid ? "VALID" : "INVALID" }}
+    </div>
+  </div>
+  <div class="col-sm-6 col-sm-pull-6 col-xs-12">
     <form ng-submit="processTransaction()" id="trade-form">
 
       <select ng-model="transaction.stock" class="form-control">
@@ -38,15 +48,5 @@
              class="btn btn-success btn-block" >
 
     </form>
-  </div>
-  <div class="col-sm-6">
-    <div>
-      <b>Funds Available</b>:
-      {{ funds | currency }}
-    </div>
-    <div>
-      <b>Transaction Status</b>:
-      {{ transaction.valid ? "VALID" : "INVALID" }}
-    </div>
   </div>
 </div>
