@@ -20,6 +20,12 @@ FG.factory('dateService',
         return end;
       };
 
+      var getDaysRemaining = function() {
+        var millisecondsToEnd = end - current;
+        var millisecondsPerDay = 1000 * 60 * 60 * 24;
+        return millisecondsToEnd / millisecondsPerDay;
+      };
+
       var previousDay = function() {
         if (atStart()) return;
         var previousDay = timeTravel(current, -1);
@@ -67,6 +73,7 @@ FG.factory('dateService',
         getStart: getStart,
         getCurrent: getCurrent,
         getEnd: getEnd,
+        getDaysRemaining: getDaysRemaining,
         previousDay: previousDay,
         nextDay: nextDay,
         stringify: stringify,

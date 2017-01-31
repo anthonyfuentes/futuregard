@@ -6,13 +6,15 @@ FG.controller('TradeCtrl',
     'stockService',
     'transactionService',
     'portfolioService',
+    '$rootScope',
 
     function($scope,
       $stateParams,
       dateService,
       stockService,
       transactionService,
-      portfolioService) {
+      portfolioService,
+      $rootScope) {
 
         $scope.defaultSymbol = stockService.getDefaultSymbol();
 
@@ -56,6 +58,10 @@ FG.controller('TradeCtrl',
           transaction.valid = transactionService.isValid($scope.transaction);
         };
 
+        var _broadcastTransaction = function() {
+          $rootScope.broadcast('trade');
+        };
+
         $scope.$watch('transaction.stock', function() {
           _updateTransaction();
           $scope.transaction.quantity = 1;
@@ -80,6 +86,7 @@ FG.controller('TradeCtrl',
           portfolioService.processTransaction($scope.transaction);
           _updateData();
           _updateTransaction();
+          _broadcastTransaction();
         };
 
       }
