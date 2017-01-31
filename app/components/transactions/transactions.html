@@ -29,7 +29,7 @@
     </table>
 
     <ul uib-pagination
-        ng-if="pagination.totalItems"
+        ng-if="pagination.totalItems > 10"
         ng-model="pagination.currentPage"
         total-items="pagination.totalItems"
         items-per-page="pagination.perPage"
