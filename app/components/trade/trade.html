@@ -27,7 +27,7 @@
         <th>Stock</th>
         <th>Quantity</th>
       </tr>
-      <tr ng-repeat="(_, stock) in stocks">
+      <tr ng-repeat="stock in stocks | orderBy:'stock'">
         <td>{{ stock.stock }}</td>
         <td>{{ stock.quantity }}</td>
       </tr>

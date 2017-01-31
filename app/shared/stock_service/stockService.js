@@ -67,7 +67,7 @@ FG.factory('stockService',
       };
 
       var getDefaultSymbol = function() {
-        return 'RAD';
+        return 'F';
       };
 
       var _scrub = function _scrub(data) {
