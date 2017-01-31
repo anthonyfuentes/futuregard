@@ -1,12 +1,13 @@
 
 FG.controller('DateSelectorCtrl',
-  ['$scope', 'dateService',
+  ['$scope', 'dateService', 'settingService',
 
-    function($scope, dateService) {
+    function($scope, dateService, settingService) {
 
       $scope.startDate = dateService.getStart();
       $scope.currentDate = dateService.getCurrent();
       $scope.endDate = dateService.getEnd();
+      $scope.settings = settingService.getSettings();
 
       $scope.dateOptions = {
         minDate: $scope.startDate,

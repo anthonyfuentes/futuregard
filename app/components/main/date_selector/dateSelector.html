@@ -6,14 +6,15 @@
   <span id="date-selector">
     Current:
     <span class="input-group">
-      <input type="text"
+      <input ng-model="currentDate"
+             ng-click="toggleOpened()"
+             ng-change="changeDate(currentDate)"
+             ng-disabled="!settings.timeTravel"
              uib-datepicker-popup="MM-dd-yyyy"
-             ng-model="currentDate"
              is-open="opened"
              datepicker-options="dateOptions"
              close-text="Close"
-             ng-click="toggleOpened()"
-             ng-change="changeDate(currentDate)"
+             type="text"
              class="form-control">
              <span class="input-group-btn">
                <button ng-click="toggleOpened()"

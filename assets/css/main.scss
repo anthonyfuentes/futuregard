@@ -15,6 +15,10 @@
   display: inline;
 }
 
+.h-inline {
+  display: inline;
+}
+
 #date-bar {
   display: flex;
   align-items: center;
@@ -42,6 +46,15 @@
   > * {
     margin: 0 0 10px 0;
   }
+}
+
+#trading-day-head {
+  display: flex;
+  align-items: center;
+}
+
+#tomorrow-btn {
+  margin: 9px 0 0 15px;
 }
 
 /* typography */

@@ -5,7 +5,12 @@
 </div>
 
 <div class="col-md-7 col-sm-12">
-  <h2>Trading Day</h2>
+  <div id="trading-day-head">
+    <h2 class="h-inline">Trading Day</h2>
+    <button ng-click="nextDay()"
+            class="btn btn-default"
+            id="tomorrow-btn">Next Day</button>
+  </div>
   <div ui-view="dateSelector"></div>
   <div ui-view="content"></div>
 </div>

@@ -84,9 +84,9 @@ FG.factory('stockService',
         var stock;
         for (var symbol in dateStocks) {
           stock = dateStocks[symbol];
-          stock.oneDay = _calculatePriceDiff(stock, date, -2, allStocks);
-          stock.week = _calculatePriceDiff(stock, date, -8, allStocks);
-          stock.month = _calculatePriceDiff(stock, date, -31, allStocks);
+          stock.oneDay = _calculatePriceDiff(stock, date, -1, allStocks);
+          stock.week = _calculatePriceDiff(stock, date, -7, allStocks);
+          stock.month = _calculatePriceDiff(stock, date, -30, allStocks);
         }
       };
 

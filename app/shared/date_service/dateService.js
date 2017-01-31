@@ -20,6 +20,11 @@ FG.factory('dateService',
         return end;
       };
 
+      var nextDay = function() {
+        var nextDay = timeTravel(current, 1);
+        setDate(new Date(nextDay));
+      };
+
       var stringify = function(date) {
         var string = date.toISOString().slice(0, 10).replace(/-/g, '/');
         return string;
@@ -45,6 +50,7 @@ FG.factory('dateService',
         getStart: getStart,
         getCurrent: getCurrent,
         getEnd: getEnd,
+        nextDay: nextDay,
         stringify: stringify,
         setDate: setDate,
         timeTravel: timeTravel,

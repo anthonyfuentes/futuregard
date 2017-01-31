@@ -12,12 +12,15 @@ FG.controller('MainCtrl',
       var dateKey = dateService.stringify(currentDate);
       angular.copy(allStocks[dateKey], $scope.currentStocks)
     };
+    $scope.updateStocks();
+
+    $scope.nextDay = function() {
+      dateService.nextDay();
+    };
 
     $scope.$on('dateChange', function() {
       $scope.updateStocks();
     });
-
-    $scope.updateStocks();
 
   }
 

@@ -50,6 +50,15 @@ FG.config(function($stateProvider, $urlRouterProvider) {
           controller: 'TradeCtrl'
         }
       }
+    })
+    .state('main.settings', {
+      url: '/settings',
+      views: {
+        'content@main': {
+          templateUrl: 'app/components/settings/settings.html',
+          controller: 'SettingsCtrl'
+        }
+      }
     });
 
 });
