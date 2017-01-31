@@ -4,8 +4,13 @@ FG.factory('portfolioService',
 
     function(stockService, dateService) {
 
-      var funds = 1000;
+      var startingFunds = 5000;
+      var funds = 5000;
       var stocks = {};
+
+      var getStartingFunds = function() {
+        return startingFunds;
+      };
 
       var getFunds = function() {
         return funds;
@@ -72,6 +77,7 @@ FG.factory('portfolioService',
 
       return {
         getFunds: getFunds,
+        getStartingFunds: getStartingFunds,
         getStockQuantity: getStockQuantity,
         getStocks: getStocks,
         getStocksWithSummary: getStocksWithSummary,

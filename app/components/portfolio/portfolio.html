@@ -40,6 +40,14 @@
         <th>30D</th>
         <th>Trade</th>
       </tr>
+      <tr>
+        <td>Cash</td>
+        <td></td>
+        <td>{{ startingFunds | currency }}</td>
+        <td>{{ funds | currency }}</td>
+        <td ng-class="{ negative: stock.oneDay < 0, positive: stock.oneDay > 0 }"
+            colspan="5">{{ funds - startingFunds | currency }}</td>
+      </tr>
       <tr ng-repeat="(_, holding) in stocks | stockFilter:symbolFilter">
         <td>{{ holding.stock }}</td>
         <td>{{ holding.quantity }}</td>

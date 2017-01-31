@@ -3,10 +3,14 @@ FG.controller('PortfolioCtrl',
   ['$scope', 'portfolioService', 'transactionService',
 
     function($scope, portfolioService, transactionService){
+
       $scope.stocks = {};
       angular.copy(portfolioService.getStocksWithSummary(), $scope.stocks);
 
       $scope.portfolio = {};
+
+      $scope.startingFunds = portfolioService.getStartingFunds();
+      $scope.funds = portfolioService.getFunds()
 
       var _updatePortfolio = function(portfolio, stocks) {
         var holding;
