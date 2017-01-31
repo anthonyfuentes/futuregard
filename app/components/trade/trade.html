@@ -55,10 +55,10 @@
       <input type="date" ng-model="transaction.date"
                          class="form-control" disabled>
 
-      <input type="number" value="{{ transaction.stockPrice }}"
+      <input type="text" value="{{ transaction.stockPrice | currency }}"
                            class="form-control" readonly>
 
-      <input type="number" value="{{ transaction.total }}"
+      <input type="text" value="{{ transaction.total | currency }}"
                            class="form-control" placeholder="Total"
                                                 readonly>
 
