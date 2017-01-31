@@ -1,8 +1,8 @@
 
 FG.factory('settingService',
-  ['$rootScope',
+  [
 
-    function($rootScope) {
+    function() {
 
       var settings = {
         timeTravel: false

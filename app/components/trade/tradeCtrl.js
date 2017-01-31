@@ -48,7 +48,7 @@ FG.controller('TradeCtrl',
           valid: true
         };
 
-        var _updateTransaction = function(){
+        var _updateTransaction = function() {
           var transaction = $scope.transaction;
           transaction.date = $scope.date;
           transaction.stockPrice = $scope.allStocks[transaction.stock].price;
@@ -69,7 +69,7 @@ FG.controller('TradeCtrl',
           _updateTransaction();
         });
 
-        $scope.$on('dateChange', function(e, date) {
+        $scope.$on('dateChange', function() {
           _updateData();
           _updateTransaction();
         });
