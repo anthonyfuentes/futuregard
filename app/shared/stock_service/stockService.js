@@ -1,20 +1,38 @@
 
 FG.factory('stockService',
-  ['$http', 'dateService',
+  ['dateService', 'apiService',
 
-    function($http, dateService) {
+    function(dateService, apiService) {
 
       var stocks = {};
 
       var all = function all() {
-        return $http({
-          method: 'GET',
-          url: '/assets/data/stocks.json'
-        })
-        .then(function(response){
-          var data = response.data.query.results.quote;
-          _scrub(data);
-          return stocks;
+        if (angular.equals(stocks, {})) {
+          return _makeApiCall();
+        } else {
+          return _resolveStocks();
+        }
+      };
+
+      var _makeApiCall = function () {
+        return  apiService.getApiStockData()
+          .then(_successfulGet, _failedGet);
+      };
+
+      var _successfulGet = function(response) {
+        var data = response.data.query.results.quote;
+        _scrub(data);
+        return stocks;
+      };
+
+      var _failedGet = function() {
+        return apiService.getSavedStockData()
+          .then(_successfulGet);
+      };
+
+      var _resolveStocks = function() {
+        return $q(function(resolve, reject) {
+          resolve(stocks);
         });
       };
 
