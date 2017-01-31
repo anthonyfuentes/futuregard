@@ -2,6 +2,7 @@
 # Futuregard
 
 A gamified stock portfolio implemented as an Angular single-page app.
+
 Step into the shoes of a stock broker and see if you can beat the market.
 
 ## Using the Deployed Application
