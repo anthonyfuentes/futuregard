@@ -1,11 +1,12 @@
 
 FG.controller('MainCtrl',
-  ['$scope', 'allStocks', 'dateService',
+  ['$scope', 'allStocks', 'dateService', 'settingService',
 
-  function($scope, allStocks, dateService) {
+  function($scope, allStocks, dateService, settingService) {
 
     $scope.allStocks = allStocks;
     $scope.currentStocks = {};
+    $scope.settings = settingService.getSettings();
 
     $scope.updateData = function() {
       $scope.updateStocks();
@@ -20,12 +21,17 @@ FG.controller('MainCtrl',
 
     $scope.updateDate = function() {
       $scope.atEnd = dateService.atEnd();
+      $scope.atStart = dateService.atStart();
     };
 
     $scope.updateData();
 
     $scope.nextDay = function() {
       dateService.nextDay();
+    };
+
+    $scope.previousDay = function() {
+      dateService.previousDay();
     };
 
     $scope.$on('dateChange', function() {

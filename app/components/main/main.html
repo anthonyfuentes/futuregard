@@ -7,10 +7,13 @@
 <div class="col-md-7 col-sm-12">
   <div id="trading-day-head">
     <h2 class="h-inline">Trading Day</h2>
+    <button ng-click="previousDay()"
+            ng-disabled="atStart || !settings.timeTravel"
+            ng-if="settings.timeTravel"
+            class="btn btn-default day-btn">Previous Day</button>
     <button ng-click="nextDay()"
             ng-disabled="atEnd"
-            class="btn btn-default"
-            id="tomorrow-btn">Next Day</button>
+            class="btn btn-default day-btn">Next Day</button>
   </div>
   <div ui-view="dateSelector"></div>
   <div ui-view="content"></div>

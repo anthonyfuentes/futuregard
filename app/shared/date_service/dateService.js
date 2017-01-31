@@ -20,6 +20,12 @@ FG.factory('dateService',
         return end;
       };
 
+      var previousDay = function() {
+        if (atStart()) return;
+        var previousDay = timeTravel(current, -1);
+        setDate(new Date(previousDay));
+      };
+
       var nextDay = function() {
         if (atEnd()) return;
         var nextDay = timeTravel(current, 1);
@@ -47,15 +53,21 @@ FG.factory('dateService',
         return new Date(formattedString);
       };
 
+      var atStart = function() {
+        return current <= start;
+      };
+
       var atEnd = function() {
         return current >= end;
       };
 
       return {
+        atStart: atStart,
         atEnd: atEnd,
         getStart: getStart,
         getCurrent: getCurrent,
         getEnd: getEnd,
+        previousDay: previousDay,
         nextDay: nextDay,
         stringify: stringify,
         setDate: setDate,
