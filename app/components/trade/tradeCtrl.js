@@ -59,7 +59,7 @@ FG.controller('TradeCtrl',
         };
 
         var _broadcastTransaction = function() {
-          $rootScope.broadcast('trade');
+          $rootScope.$broadcast('trade');
         };
 
         $scope.$watch('transaction.stock', function() {
