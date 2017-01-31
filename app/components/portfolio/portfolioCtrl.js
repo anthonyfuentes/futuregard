@@ -2,13 +2,12 @@
 FG.controller('PortfolioCtrl',
   ['$scope', 'portfolioService', 'transactionService',
 
-    function($scope, portfolioService, transactionService){
+    function($scope, portfolioService, transactionService) {
 
       $scope.stocks = {};
+      $scope.stockList = [];
       angular.copy(portfolioService.getStocksWithSummary(), $scope.stocks);
-
       $scope.portfolio = {};
-
       $scope.startingFunds = portfolioService.getStartingFunds();
       $scope.funds = portfolioService.getFunds()
 
@@ -39,12 +38,19 @@ FG.controller('PortfolioCtrl',
         portfolio.month += holding.summary.performance.month;
       };
 
+      var _updateStockList = function() {
+        var stocks = Object.values($scope.stocks);
+        angular.copy(stocks, $scope.stockList);
+      };
+
+      _updateStockList();
       _updatePortfolio($scope.portfolio, $scope.stocks);
 
       $scope.$on('dateChange', function() {
         angular.copy(portfolioService.getStocksWithSummary(), $scope.stocks);
         _updatePortfolio($scope.portfolio, $scope.stocks);
+        _updateStockList();
       });
     }
 
-  ]);
+]);

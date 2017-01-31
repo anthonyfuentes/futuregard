@@ -20,7 +20,7 @@ FG.controller('TradeCtrl',
 
         $scope.symbol = $stateParams.symbol || $scope.defaultSymbol;
 
-        $scope.stocks = portfolioService.getStocks();
+        $scope.stocks = [];
 
         var _updateData = function() {
           _updateDate();
@@ -34,8 +34,14 @@ FG.controller('TradeCtrl',
         };
 
         var _updateStocks = function() {
-          $scope.allStocks = stockService.stocksForDate($scope.dateKey);
-          $scope.symbols = Object.keys($scope.allStocks);
+          $scope.dateStocks = stockService.stocksForDate($scope.dateKey);
+          $scope.symbols = Object.keys($scope.dateStocks);
+          _updateStockHoldings();
+        };
+
+        var _updateStockHoldings = function() {
+          var stockHoldings = Object.values(portfolioService.getStocks());
+          angular.copy(stockHoldings, $scope.stocks)
         };
 
         _updateData();
@@ -45,7 +51,7 @@ FG.controller('TradeCtrl',
           type: 'buy',
           quantity: 1,
           date: $scope.date,
-          stockPrice: $scope.allStocks[$scope.symbol].price,
+          stockPrice: $scope.dateStocks[$scope.symbol].price,
           total: 0,
           valid: true
         };
@@ -53,7 +59,7 @@ FG.controller('TradeCtrl',
         var _updateTransaction = function() {
           var transaction = $scope.transaction;
           transaction.date = $scope.date;
-          transaction.stockPrice = $scope.allStocks[transaction.stock].price;
+          transaction.stockPrice = $scope.dateStocks[transaction.stock].price;
           transaction.total = transaction.stockPrice * transaction.quantity;
           transaction.valid = transactionService.isValid($scope.transaction);
         };

@@ -4,6 +4,9 @@
   * typography
 */
 /* layout */
+body {
+  padding-top: 70px; }
+
 .margin-bot-sm {
   margin-bottom: 15px; }
 
