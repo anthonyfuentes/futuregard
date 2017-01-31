@@ -7,19 +7,29 @@ FG.controller('MainCtrl',
     $scope.allStocks = allStocks;
     $scope.currentStocks = {};
 
+    $scope.updateData = function() {
+      $scope.updateStocks();
+      $scope.updateDate();
+    };
+
     $scope.updateStocks = function() {
       var currentDate = dateService.getCurrent();
       var dateKey = dateService.stringify(currentDate);
       angular.copy(allStocks[dateKey], $scope.currentStocks)
     };
-    $scope.updateStocks();
+
+    $scope.updateDate = function() {
+      $scope.atEnd = dateService.atEnd();
+    };
+
+    $scope.updateData();
 
     $scope.nextDay = function() {
       dateService.nextDay();
     };
 
     $scope.$on('dateChange', function() {
-      $scope.updateStocks();
+      $scope.updateData();
     });
 
   }

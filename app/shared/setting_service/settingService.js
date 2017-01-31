@@ -14,7 +14,6 @@ FG.factory('settingService',
 
       var setTimeTravel = function(timeTravel) {
         settings.timeTravel = timeTravel;
-        _broadcastUpdate();
       };
 
       return {

@@ -8,6 +8,7 @@
   <div id="trading-day-head">
     <h2 class="h-inline">Trading Day</h2>
     <button ng-click="nextDay()"
+            ng-disabled="atEnd"
             class="btn btn-default"
             id="tomorrow-btn">Next Day</button>
   </div>
