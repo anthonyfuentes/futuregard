@@ -4,7 +4,13 @@ FG.controller('TransactionCtrl',
 
     function($scope, transactionService) {
 
-      var allTransactions = Object.values(transactionService.getTransactions());
+      var allTransactions = (function() {
+        var aT = Object.values(transactionService.getTransactions(true));
+        aT.sort(function(a, b) {
+          return (a.id - b.id) * -1;
+        });
+        return aT;
+      }())
 
       $scope.transactions = [];
 
