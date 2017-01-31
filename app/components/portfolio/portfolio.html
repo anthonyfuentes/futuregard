@@ -17,10 +17,10 @@
       <tr>
         <td>{{ portfolio.costBasis | currency }}</td>
         <td>{{ portfolio.value | currency }}</td>
-        <td>{{ portfolio.profit | currency }}</td>
-        <td>{{ portfolio.oneDay | currency }}</td>
-        <td>{{ portfolio.week | currency }}</td>
-        <td>{{ portfolio.month | currency }}</td>
+        <td ng-class="{ negative: portfolio.profit < 0, positive: portfolio.profit > 0 }">{{ portfolio.profit | currency }}</td>
+        <td  ng-class="{ negative: portfolio.oneDay < 0, positive: portfolio.oneDay > 0 }">{{ portfolio.oneDay | currency }}</td>
+        <td ng-class="{ negative: portfolio.week < 0, positive: portfolio.week > 0 }">{{ portfolio.week | currency }}</td>
+        <td ng-class="{ negative: portfolio.month < 0, positive: portfolio.month > 0 }">{{ portfolio.month | currency }}</td>
       </tr>
     </table>
 
@@ -45,10 +45,10 @@
         <td>{{ holding.quantity }}</td>
         <td>{{ holding.cost | currency }}</td>
         <td>{{ holding.summary.value | currency }}</td>
-        <td>{{ holding.summary.profit | currency }}</td>
-        <td>{{ holding.summary.performance.oneDay | currency }}</td>
-        <td>{{ holding.summary.performance.week | currency }}</td>
-        <td>{{ holding.summary.performance.month | currency }}</td>
+        <td ng-class="{ negative: holding.summary.profit < 0, positive: holding.summary.profit > 0 }">{{ holding.summary.profit | currency }}</td>
+        <td ng-class="{ negative: holding.summary.performance.oneDay < 0, positive: holding.summary.performance.oneDay > 0 }">{{ holding.summary.performance.oneDay | currency }}</td>
+        <td ng-class="{ negative: holding.summary.performance.week < 0, positive: holding.summary.performance.week > 0 }">{{ holding.summary.performance.week | currency }}</td>
+        <td ng-class="{ negative: holding.summary.performance.month < 0, positive: holding.summary.performance.month > 0 }">{{ holding.summary.performance.month | currency }}</td>
         <td><a ui-sref="main.trade({ symbol: holding.stock })">Trade</a></td>
       </tr>
     </table>

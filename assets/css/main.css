@@ -33,4 +33,11 @@
 #trade-form > * {
   margin: 0 0 10px 0; }
 
+/* typography */
+.negative {
+  color: red; }
+
+.positive {
+  color: green; }
+
 /*# sourceMappingURL=main.css.map */

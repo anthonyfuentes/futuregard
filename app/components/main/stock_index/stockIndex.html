@@ -15,9 +15,9 @@
   <tr ng-repeat="(symbol, stock) in stocks | stockFilter:symbolFilter">
     <td>{{ symbol }}</td>
     <td>{{ stock.price | currency }}</td>
-    <td>{{ stock.oneDay | currency }}</td>
-    <td>{{ stock.week | currency }}</td>
-    <td>{{ stock.month | currency }}</td>
+    <td ng-class="{ negative: stock.oneDay < 0, positive: stock.oneDay > 0 }">{{ stock.oneDay | currency }}</td>
+    <td ng-class="{ negative: stock.week < 0, positive: stock.week > 0 }">{{ stock.week | currency }}</td>
+    <td ng-class="{ negative: stock.month < 0, positive: stock.month > 0 }">{{ stock.month | currency }}</td>
     <td><a ui-sref="main.trade({ symbol: symbol })">Trade</a></td>
   </tr>
 </table>
