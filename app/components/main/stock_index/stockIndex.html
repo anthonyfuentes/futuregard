@@ -13,7 +13,7 @@
     <th>Trade</th>
   </tr>
   <tr ng-repeat="stock in stocks |
-        stockFilter:symbolFilter |
+        filter:symbolFilter |
         orderBy:'symbol'">
     <td>{{ stock.symbol }}</td>
     <td>{{ stock.price | currency }}</td>
