@@ -14,7 +14,7 @@ FG.controller('TradeCtrl',
       transactionService,
       portfolioService) {
 
-        $scope.defaultSymbol = 'AAPL';
+        $scope.defaultSymbol = stockService.getDefaultSymbol();
 
         $scope.symbol = $stateParams.symbol || $scope.defaultSymbol;
 

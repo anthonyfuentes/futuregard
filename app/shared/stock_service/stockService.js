@@ -66,6 +66,10 @@ FG.factory('stockService',
         return performance;
       };
 
+      var getDefaultSymbol = function() {
+        return 'RAD';
+      };
+
       var _scrub = function _scrub(data) {
         _populateDatesWithPrices(data);
         _fillIn(data);
@@ -142,9 +146,10 @@ FG.factory('stockService',
 
       return {
         all: all,
-        stocksForDate: stocksForDate,
         currentPrice: currentPrice,
-        performance: performance
+        getDefaultSymbol: getDefaultSymbol,
+        performance: performance,
+        stocksForDate: stocksForDate
       };
 
     }
