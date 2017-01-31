@@ -1,20 +1,29 @@
 
 <div id="date-bar">
+
   <span><b>Start:</b> {{ startDate | date:'MM/dd/yyyy' }}</span>
 
-  <span>
+  <span id="date-selector">
     <b>Current:</b>
-    <input type="text"
-           uib-datepicker-popup="MM-dd-yyyy"
-           ng-model="currentDate"
-           is-open="opened"
-           datepicker-options="dateOptions"
-           close-text="Close"
-           ng-click="toggleOpened()"
-           ng-change="changeDate(currentDate)"
-           class="form-control"
-           id="date-selector">
+    <span class="input-group">
+      <input type="text"
+             uib-datepicker-popup="MM-dd-yyyy"
+             ng-model="currentDate"
+             is-open="opened"
+             datepicker-options="dateOptions"
+             close-text="Close"
+             ng-click="toggleOpened()"
+             ng-change="changeDate(currentDate)"
+             class="form-control">
+             <span class="input-group-btn">
+               <button ng-click="toggleOpened()"
+                       type="button"
+                       class="btn btn-default" ><i class="glyphicon glyphicon-calendar"></i>
+               </button>
+             </span>
+    </span>
   </span>
 
   <span><b>End:</b> {{ endDate | date:'MM/dd/yyyy' }}</span>
+
 </div>
