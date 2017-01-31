@@ -1,6 +1,7 @@
 /*
   * layout
   * modules
+  * typography
 */
 /* layout */
 .margin-bot-sm {
@@ -13,7 +14,12 @@
 #date-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  color: white;
+  background-color: #1b95e0;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2em; }
 
 #date-selector {
   width: 35%;

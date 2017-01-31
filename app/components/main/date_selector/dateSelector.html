@@ -1,10 +1,10 @@
 
 <div id="date-bar">
 
-  <span><b>Start:</b> {{ startDate | date:'MM/dd/yyyy' }}</span>
+  <span>Start: {{ startDate | date:'MM-dd-yyyy' }}</span>
 
   <span id="date-selector">
-    <b>Current:</b>
+    Current:
     <span class="input-group">
       <input type="text"
              uib-datepicker-popup="MM-dd-yyyy"
@@ -24,6 +24,6 @@
     </span>
   </span>
 
-  <span><b>End:</b> {{ endDate | date:'MM/dd/yyyy' }}</span>
+  <span>End: {{ endDate | date:'MM-dd-yyyy' }}</span>
 
 </div>
