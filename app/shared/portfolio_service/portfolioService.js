@@ -72,7 +72,7 @@ FG.factory('portfolioService',
         var holding = stocks[transaction.stock];
         funds += transaction.total;
         holding.quantity -= transaction.quantity;
-        holding.cost -= transacton.total;
+        holding.cost -= transaction.total;
         if (holding.quantity === 0) delete stocks[transaction.stock];
       };
 
