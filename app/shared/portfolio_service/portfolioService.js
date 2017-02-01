@@ -57,6 +57,7 @@ FG.factory('portfolioService',
         if (!holding) holding = _newHoldingFor(transaction.stock);
         holding.quantity += transaction.quantity;
         holding.cost += transaction.total;
+        _updateCostPer(holding, transaction);
         funds -= transaction.total;
       };
 
@@ -65,15 +66,49 @@ FG.factory('portfolioService',
         holding.stock = stock;
         holding.quantity = 0;
         holding.cost = 0;
+        holding.quantitiesByPrice = {};
         return holding;
+      };
+
+      var _updateCostPer = function(holding, transaction) {
+        var price = transaction.total / transaction.quantity;
+        var quantitiesByPrice = holding.quantitiesByPrice;
+        if (quantitiesByPrice[price]) {
+          quantitiesByPrice[price] += transaction.quantity;
+        } else {
+          quantitiesByPrice[price] = transaction.quantity;
+        }
       };
 
       var _processStockSale = function(transaction) {
         var holding = stocks[transaction.stock];
         funds += transaction.total;
         holding.quantity -= transaction.quantity;
-        holding.cost -= transaction.total;
+        _updateHoldingCost(holding, transaction.quantity);
         if (holding.quantity === 0) delete stocks[transaction.stock];
+      };
+
+      var _updateHoldingCost = function(holding, stocksSold) {
+        var stocksRemoved = 0;
+        var costDifference = 0;
+        var quantitiesByPrice = holding.quantitiesByPrice;
+        var quantity;
+        for (var price in quantitiesByPrice) {
+          console.log(price);
+          quantity = quantitiesByPrice[price];
+          while (quantity >= 0) {
+            if (quantity === 0) {
+              delete quantitiesByPrice[price];
+              break;
+            }
+            quantitiesByPrice[price]--;
+            costDifference += +price;
+            stocksRemoved++;
+            if (stocksRemoved === stocksSold) break;
+          }
+          if (stocksRemoved === stocksSold) break;
+        }
+        holding.cost -= costDifference;
       };
 
       return {
@@ -87,4 +122,4 @@ FG.factory('portfolioService',
 
     }
 
-  ]);
+]);
