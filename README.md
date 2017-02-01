@@ -9,7 +9,7 @@ Step into the shoes of a stock broker and see if you can beat the market.
 1. Visit http://anthonyfuentes.us/futuregard/
 2. Attempt to trade your way to the top
 
-### App Structure
+### UI Navigation
 * Portfolio
   - See a summary of your portfolio
 * Trade Action
