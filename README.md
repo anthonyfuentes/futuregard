@@ -5,6 +5,8 @@ A gamified stock portfolio implemented as an Angular single-page app.
 
 Step into the shoes of a stock broker and see if you can beat the market.
 
+![screenshot of Futuregard](https://github.com/anthonyfuentes/futuregard/blob/master/assets/img/futuregard.png)
+
 ## Using the Deployed Application
 1. Visit http://anthonyfuentes.us/futuregard/
 2. Attempt to trade your way to the top
